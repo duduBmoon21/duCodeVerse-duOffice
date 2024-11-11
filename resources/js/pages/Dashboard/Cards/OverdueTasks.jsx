@@ -15,13 +15,16 @@ import {
   Tooltip,
 } from "@mantine/core";
 import { IconRocket } from "@tabler/icons-react";
+import { useTranslation } from "react-i18next"; // Import useTranslation hook
 import classes from "./css/OverdueTasks.module.css";
 
 export default function OverdueTasks({ tasks }) {
+  const { t } = useTranslation(); 
+
   return (
     <Card bg="none">
       <Title order={3} ml={15}>
-        Overdue tasks
+        {t("overdue_tasks")} {/* Translated string */}
       </Title>
 
       <Divider my={14} />
@@ -42,7 +45,7 @@ export default function OverdueTasks({ tasks }) {
                       {task.name}
                     </Text>
                     <Group>
-                      <Tooltip label="Task group" openDelay={500} withArrow>
+                      <Tooltip label={t("task_group_tooltip")} openDelay={500} withArrow>
                         <TaskGroupLabel>{task.task_group.name}</TaskGroupLabel>
                       </Tooltip>
                       <Text fz={11} c="dimmed">
@@ -62,7 +65,7 @@ export default function OverdueTasks({ tasks }) {
         </ScrollArea>
       ) : (
         <Center my={30}>
-          <EmptyWithIcon title="All done!" subtitle="You have no overdue tasks" icon={IconRocket} />
+          <EmptyWithIcon title={t("all_done_title")} subtitle={t("no_overdue_tasks")} icon={IconRocket} />
         </Center>
       )}
     </Card>

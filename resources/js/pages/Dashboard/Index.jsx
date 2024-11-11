@@ -7,8 +7,19 @@ import { ProjectCard } from "./Cards/ProjectCard";
 import RecentComments from "./Cards/RecentComments";
 import RecentlyAssignedTasks from "./Cards/RecentlyAssignedTasks";
 import classes from "./css/Index.module.css";
+import { useEffect } from "react";
+
+import "../../i18n";
+import { useTranslation } from "react-i18next";
+import i18n from "../../i18n";
 
 const Dashboard = () => {
+  const {t, i18n}= useTranslation();
+  const changeLanguage=(lng)=>{
+    i18n.changeLanguage(lng)
+  }
+   
+
   const { projects, overdueTasks, recentlyAssignedTasks, recentComments } = usePage().props;
 
   const breakpointColumns = {
@@ -19,7 +30,8 @@ const Dashboard = () => {
 
   return (
     <>
-      <Title mb="xl">Dashboard</Title>
+     
+        <Title mb="xl">{t('dashboard')}</Title>
       <Masonry
         breakpointCols={breakpointColumns}
         className={classes.myMasonryGrid}

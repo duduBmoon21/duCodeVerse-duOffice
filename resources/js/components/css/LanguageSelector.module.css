@@ -1,0 +1,44 @@
+.languageButton {
+   /* Positioning it fixed to the screen */
+  top: 15px;        /* Aligning it at the top, same as the notification */
+  right: 50px;      /* Adjust this to position it to the right side of the screen */
+  z-index: 99999;   /* Ensure it stays on top */
+  background-color: #f1f1f1;
+  padding: 8px 15px;
+  border-radius: 15px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  margin-left: 20px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);  /* Add shadow for depth */
+  position: absolute;  /* Absolute positioning */
+  top: 15px;  /* Adjust the top to place it near the notification icon */
+  left: calc(50% + 70px);  /* Move it to the right by 60px from the center (adjust as needed) */
+}
+
+
+
+
+.languageButton:hover {
+  background-color: #e0e0e0;  /* Hover effect */
+}
+
+.languageItem {
+  display: flex;
+  align-items: center;
+  padding: 8px 15px;
+  cursor: pointer;
+}
+
+.languageItem:hover {
+  background-color: #f0f0f0;
+}
+
+.dropdown {
+  min-width: 200px;
+  margin-top: 8px; /* Added spacing between button and dropdown */
+}
+
+.indicator {
+  margin-left: 10px;
+}

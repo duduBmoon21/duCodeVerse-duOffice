@@ -6,7 +6,9 @@ import "@mantine/tiptap/styles.css";
 import "nprogress/nprogress.css";
 import "../css/app.css";
 import "./bootstrap";
-
+import "./i18n";
+import { useTranslation } from "react-i18next";
+import { useEffect } from "react";
 import { createInertiaApp } from "@inertiajs/react";
 import { MantineProvider, createTheme } from "@mantine/core";
 import { ModalsProvider } from "@mantine/modals";
@@ -15,6 +17,8 @@ import { resolvePageComponent } from "laravel-vite-plugin/inertia-helpers";
 import { createRoot } from "react-dom/client";
 
 const theme = createTheme({
+
+
   primaryColor: "blue",
   primaryShade: { light: 6, dark: 8 },
   colors: {
@@ -43,12 +47,14 @@ createInertiaApp({
     const root = createRoot(el);
 
     root.render(
+      
       <MantineProvider theme={theme} defaultColorScheme="auto">
         <Notifications />
         <ModalsProvider>
           <App {...props} />
         </ModalsProvider>
-      </MantineProvider>,
+      </MantineProvider>
+   
     );
   },
   progress: false,

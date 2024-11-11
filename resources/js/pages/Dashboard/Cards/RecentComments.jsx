@@ -16,12 +16,14 @@ import {
 } from "@mantine/core";
 import { IconMessage } from "@tabler/icons-react";
 import classes from "./css/RecentComments.module.css";
+import { useTranslation } from "react-i18next";
 
 export default function RecentComments({ comments }) {
+  const { t } = useTranslation(); 
   return (
     <Card bg="none">
       <Title order={3} ml={15}>
-        Recent comments
+        {t("Recent comments")}
       </Title>
 
       <Divider my={14} />
@@ -66,7 +68,7 @@ export default function RecentComments({ comments }) {
         </ScrollArea>
       ) : (
         <Center my={30}>
-          <EmptyWithIcon title="No comments" subtitle="On your tasks" icon={IconMessage} />
+          <EmptyWithIcon title={t("No comments")} subtitle={t("On your tasks")} icon={IconMessage} />
         </Center>
       )}
     </Card>

@@ -1,0 +1,28 @@
+/* LanguageSelector.module.css */
+.indicator {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .dropdown {
+    width: 200px;
+  }
+  
+  .languageItem {
+    padding: 10px;
+    cursor: pointer;
+  }
+  
+  .languageItem:hover {
+    background-color: #f0f0f0;
+  }
+  
+  .emptyState {
+    color: gray;
+  }
+  
+  .link {
+    color: blue;
+  }
+  

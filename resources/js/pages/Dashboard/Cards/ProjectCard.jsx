@@ -4,8 +4,11 @@ import { Group, RingProgress, Stack, Text, Title, Tooltip, rem } from "@mantine/
 import { IconStarFilled } from "@tabler/icons-react";
 import round from "lodash/round";
 import classes from "./css/ProjectCard.module.css";
+import { useTranslation } from "react-i18next";
 
 export function ProjectCard({ project }) {
+  const { t } = useTranslation(); 
+
   let completedPercent = 0;
   let overduePercent = 0;
 
@@ -41,9 +44,9 @@ export function ProjectCard({ project }) {
             {project.client_company.name}
           </Text>
           <div>
-            <Tooltip label="Completed tasks" openDelay={500} withArrow>
+            <Tooltip label={t("completed_tasks_tooltip")} openDelay={500} withArrow>
               <Text fz="lg" fw={500} inline span>
-                Tasks: {project.completed_tasks_count} / {project.all_tasks_count}
+                {t("tasks")}: {project.completed_tasks_count} / {project.all_tasks_count}
               </Text>
             </Tooltip>
           </div>
@@ -56,12 +59,12 @@ export function ProjectCard({ project }) {
             {
               value: overduePercent,
               color: "red",
-              tooltip: `Overdue: ${project.overdue_tasks_count}`,
+              tooltip: `${t("overdue")}: ${project.overdue_tasks_count}`,
             },
             {
               value: completedPercent,
               color: "blue",
-              tooltip: `Completed: ${project.completed_tasks_count}`,
+              tooltip: `${t("completed")}: ${project.completed_tasks_count}`,
             },
           ]}
           label={

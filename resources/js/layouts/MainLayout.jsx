@@ -3,6 +3,7 @@ import useNotificationsStore from "@/hooks/store/useNotificationsStore";
 import useAuthorization from "@/hooks/useAuthorization";
 import useWebSockets from "@/hooks/useWebSockets";
 import NavBarNested from "@/layouts/NavBarNested";
+import LanguageSelector from "@/components/LanguageSelector"; 
 import Notifications from "@/layouts/Notifications";
 import { Head, usePage } from "@inertiajs/react";
 import { AppShell } from "@mantine/core";
@@ -29,10 +30,14 @@ export default function MainLayout({ children, title }) {
 
       <FlashNotification />
 
-      <Notifications />
+      {/* Create a container for notifications and language selector */}
+      <div style={{ display: 'flex', alignItems: 'center', gap: '15px' }}>
+        <Notifications />
+        <LanguageSelector />
+      </div>
 
       <AppShell.Navbar>
-        <NavBarNested></NavBarNested>
+        <NavBarNested />
       </AppShell.Navbar>
 
       <AppShell.Main>{children}</AppShell.Main>

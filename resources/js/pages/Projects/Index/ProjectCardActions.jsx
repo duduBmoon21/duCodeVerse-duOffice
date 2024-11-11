@@ -4,8 +4,10 @@ import { router } from "@inertiajs/react";
 import { ActionIcon, Menu, rem } from "@mantine/core";
 import { IconArchive, IconArchiveOff, IconDots, IconPencil, IconUsers } from "@tabler/icons-react";
 import UserAccessModal from "./Modals/UserAccessModal.jsx";
+import { useTranslation } from "react-i18next";
 
 export default function ProjectCardActions({ item }) {
+  const { t } = useTranslation(); 
   const [archiveForm] = useForm("delete", route("projects.destroy", item.id));
   const [restoreForm] = useForm("post", route("projects.restore", item.id));
 
@@ -78,7 +80,7 @@ export default function ProjectCardActions({ item }) {
                 onClick={() => router.visit(route("projects.edit", item.id))}
                 data-ignore-link
               >
-                Edit
+                {t("Edit")}
               </Menu.Item>
             )}
             {can("restore project") && route().params.archived && (
@@ -94,7 +96,7 @@ export default function ProjectCardActions({ item }) {
                 onClick={openRestoreModal}
                 data-ignore-link
               >
-                Restore
+               {t("Restore")}
               </Menu.Item>
             )}
             {can("archive project") && !route().params.archived && (

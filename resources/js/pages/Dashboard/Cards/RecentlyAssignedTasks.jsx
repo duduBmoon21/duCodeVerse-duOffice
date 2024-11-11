@@ -16,12 +16,14 @@ import {
 } from "@mantine/core";
 import { IconSearch } from "@tabler/icons-react";
 import classes from "./css/RecentlyAssignedTasks.module.css";
+import { useTranslation } from "react-i18next";
 
 export default function RecentlyAssignedTasks({ tasks }) {
+  const { t } = useTranslation(); 
   return (
     <Card bg="none">
       <Title order={3} ml={15}>
-        Recently assigned tasks
+        {t("Recently assigned tasks")}
       </Title>
 
       <Divider my={14} />
@@ -42,7 +44,7 @@ export default function RecentlyAssignedTasks({ tasks }) {
                       {task.name}
                     </Text>
                     <Group>
-                      <Tooltip label="Task group" openDelay={500} withArrow>
+                      <Tooltip label={t("Task group")} openDelay={500} withArrow>
                         <TaskGroupLabel>{task.task_group.name}</TaskGroupLabel>
                       </Tooltip>
                       <Text fz={11} c="dimmed">
@@ -62,7 +64,7 @@ export default function RecentlyAssignedTasks({ tasks }) {
         </ScrollArea>
       ) : (
         <Center my={30}>
-          <EmptyWithIcon title="No tasks" subtitle="You have no assigned tasks" icon={IconSearch} />
+          <EmptyWithIcon title={t("No tasks")} subtitle={t("You have no assigned tasks" )}icon={IconSearch} />
         </Center>
       )}
     </Card>
