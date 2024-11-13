@@ -11,7 +11,7 @@ LaraCollab, developed with Laravel and React, serves as a project management too
 - Task groups within projects (e.g., Todo, In progress, QA, Done, Deployed).
 - Task can have a assignee, due date, custom labels, time estimation (add manually or use timer), attachments, subscribers, and comments.
 - Task filters for efficient organization.
-- Real-time notifications and task updates via web sockets.
+- Real-time notifications and tas updates via web sockets.
 - Mention functionality in task descriptions and comments.
 - Personalized "My Tasks" page for each user.
 - Activity page for projects or selected ones.
